@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
+import { HerosModule } from './pages/heros/heros.module'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,8 +18,9 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    NgZorroAntdModule
+    NgZorroAntdModule,
+    HerosModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
