@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HerosComponent } from './heros.component'
 
 const routes: Routes = [
-  { path: 'home/heros', component: HerosComponent }
+  { path: '', component: HerosComponent }
 ];
 
 @NgModule({

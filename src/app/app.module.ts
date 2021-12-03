@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
-import { HerosModule } from './pages/heros/heros.module'
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { HerosModule } from './pages/heros/heros.module'
   imports: [
     BrowserModule,
     NgZorroAntdModule,
-    HerosModule,
     AppRoutingModule
   ],
   providers: [],
