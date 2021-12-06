@@ -72,6 +72,7 @@ export class WDatePickerComponent implements OnInit, OnChanges {
 
   getDateDownToMinute(): Date {
     // return new Date(getISOTimeString(new Date(), 'minute'));
+    return new Date()
   }
 
   updateTimeValues(startTimeValue: string, endTimeValue: string): void {
@@ -150,9 +151,9 @@ export class WDatePickerComponent implements OnInit, OnChanges {
     // this.onConfirmClick(null, true);
   }
   onLatestClickEx($event: any) {
-    const endTime = this.getDateDownToMinute();
-    const startTime = new Date(endTime.getTime() - (this.intervalHour ? this.intervalHour : 3) * ONE_HOUR_MS);
-    this.updateInputTimeValues(this.formatDate(this.lockVisible ? this.startTime : startTime), this.formatDate(endTime));
+    // const endTime = this.getDateDownToMinute();
+    // const startTime = new Date(endTime.getTime() - (this.intervalHour ? this.intervalHour : 3) * ONE_HOUR_MS);
+    // this.updateInputTimeValues(this.formatDate(this.lockVisible ? this.startTime : startTime), this.formatDate(endTime));
     // this.timeChange.emit({ startTime: this.inputStartTime, endTime: this.inputEndTime, latest: true });
   }
   onClearClick($event: any) {

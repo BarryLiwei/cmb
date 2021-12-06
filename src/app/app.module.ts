@@ -15,7 +15,7 @@ import { NgZorroAntdModule, NZ_ICONS } from 'ng-zorro-antd';
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
-import { WDatePickerComponent } from './components/w-date-picker/w-date-picker.component';
+// import { WDatePickerComponent } from './components/w-date-picker/w-date-picker.component';
 
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
@@ -28,7 +28,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     HomeComponent,
     PageNotFoundComponent,
     SafeUrlPipe,
-    WDatePickerComponent
+    // WDatePickerComponent
   ],
   imports: [
     BrowserModule,
