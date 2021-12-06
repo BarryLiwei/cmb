@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-fund',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fund.component.less']
 })
 export class FundComponent implements OnInit {
-
+  @ViewChild('popoverStartTime') popoverStartTime: ElementRef;
+  @ViewChild('popoverEndTime') popoverEndTime: ElementRef;
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
 
 }

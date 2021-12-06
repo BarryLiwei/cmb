@@ -1,1 +1,21 @@
 <p>fund works!</p>
+<div class="business-range-date">
+  <input
+    #popoverStartTime
+    nz-input
+    type="text"
+    autocomplete="off"
+    id="startDate"
+    onfocus="WdatePicker({ minDate: '2019-01-01 00:00:00', position: { top: 5 }, hmsMenuCfg: { H: [1, 8], m: [1, 10], s: [15, 4] }, isShowClear: false, isShowOK: true, skin: 'twoer', dateFmt:'yyyy-MM-dd HH:mm', enableKeyboard: false, autoUpdateOnChanged: true })"
+    />
+  <i nz-icon nzTheme="outline"
+    style="margin-left: 5px;color: red;cursor: pointer;font-size: 16px;"></i>
+  <span>至</span>
+  <input
+    #popoverEndTime
+    nz-input
+    type="text"
+    autocomplete="off"
+    id="endDate"
+    onfocus="WdatePicker({ position: { top: 5 }, hmsMenuCfg: { H: [1, 8], m: [1, 10], s: [15, 4] }, isShowClear: false, isShowOK: true, skin: 'twoer', dateFmt:'yyyy-MM-dd HH:mm', enableKeyboard: false, autoUpdateOnChanged: true })" />
+</div>

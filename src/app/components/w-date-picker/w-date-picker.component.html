@@ -1,0 +1,138 @@
+
+<nz-input-group nz-popover #popover="nzPopover" [nzVisible]="popoverVisible" (nzVisibleChange)="onPopoverChange($event)"
+  nzPopoverTitle="" nzPopoverTrigger="click"  [nzPopoverContent]="popoverContent"
+  [nzSuffix]="groupSuffix" [class.readonly]="readOnly" [nzPopoverPlacement]="advanceType?'bottom':'bottomLeft'">
+  <input type="text" nz-input placeholder="开始时间"  disabled [(ngModel)]="inputStartTime"
+  [class]="advanceType?'advanceStartDateTime':'startDateTime'"
+  />
+  <input type="text" nz-input placeholder="~" class="splitDateTime" disabled />
+  <input type="text" nz-input placeholder="结束时间" class="endDateTime" disabled [(ngModel)]="inputEndTime"
+  [class]="advanceType?'advanceEndDateTime':'endDateTime'"/>
+  <ng-template #groupSuffix>
+
+    <i nz-icon nzType="calendar"></i>
+  </ng-template>
+</nz-input-group>
+
+<button nz-button nzType="primary" (click)="onLatestClickEx($event)"
+  *ngIf="!readOnly && showLatest && hideReloadLatest !== true"
+  [style]="advanceType?'margin-top: 15px;':'margin-left: 6px; margin-right: 0px; text-align: center;'">
+  最新
+  <!-- <i nz-icon nzType="reload" [nzSpin]="true"></i> -->
+</button>
+
+<ng-template #popoverContent>
+  <div class="trp-content">
+    <div class="left">
+      <div class="title">快捷选择时间范围 ...</div>
+      <div class="content">
+        <div class="content-left">
+          <button nz-button nzType="default" (click)="onTodayClick($event)">
+            今天
+          </button>
+          <button nz-button nzType="default" (click)="onYesterdayClick($event)">
+            昨天
+          </button>
+          <div *ngIf="!lockShow === true">
+          <button  nz-button nzType="default" *ngFor="let minute of minutes" (click)="onSelectClickMinute(minute)" >
+            最近 {{ minute }} 分钟
+          </button>
+          <button nz-button nzType="default" (click)="onSelectClick1(1)">
+            最近 1 小时
+          </button>
+          </div>
+          <button nz-button nzType="default" *ngFor="let hour of hours" (click)="onSelectClick1(hour)">
+            最近 {{ hour }} 小时
+          </button>
+        </div>
+        <div class="content-right">
+          <button nz-button nzType="default" (click)="onSelectClick2(-3)">
+            往前 3 小时
+          </button>
+          <button nz-button nzType="default" (click)="onSelectClick2(3)">
+            往后 3 小时
+          </button>
+          <button nz-button nzType="default" (click)="onSelectClick2(-24 * 1)">
+            往前 1 天
+          </button>
+          <button nz-button nzType="default" (click)="onSelectClick2(24 * 1)">
+            往后 1 天
+          </button>
+          <button nz-button nzType="default" (click)="onSelectClick2(-24 * 7)">
+            往前 1 周
+          </button>
+          <button nz-button nzType="default" (click)="onSelectClick2(24 * 7)">
+            往后 1 周
+          </button>
+          <button nz-button nzType="default" (click)="onSelectClick2(-24 * 30)">
+            往前 1 月
+          </button>
+          <button nz-button nzType="default" (click)="onSelectClick2(24 * 30)">
+            往后 1 月
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="title">自定义时间范围 ...</div>
+      <div class="content">
+        <table>
+          <tr>
+            <td>开始时间</td>
+            <td>
+              <input
+                #popoverStartTime
+
+                nz-input
+                type="text"
+                autocomplete="off"
+                id="startDate"
+                (blur)="onBlur($event)"
+                (keydown.enter)="onEnter($event)"
+                (keydown)="onKeydown($event)"
+                onfocus="WdatePicker({ minDate: '2019-01-01 00:00:00', position: { top: 5 }, hmsMenuCfg: { H: [1, 8], m: [1, 10], s: [15, 4] }, isShowClear: false, isShowOK: true, skin: 'twoer', dateFmt:'yyyy-MM-dd HH:mm', enableKeyboard: false, autoUpdateOnChanged: true })"
+                [disabled]="lockVisible" />
+              <i nz-icon [nzType]="lockVisible ? 'unlock' : 'lock'" nzTheme="outline" (click)="onLockClick()"
+                style="margin-left: 5px;color: red;cursor: pointer;font-size: 16px;" *ngIf="lockShow === true"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>结束时间</td>
+            <td>
+              <input
+                #popoverEndTime
+
+                nz-input
+                type="text"
+                autocomplete="off"
+                id="endDate"
+                (blur)="onBlur($event)"
+                (keydown.enter)="onEnter($event)"
+                (keydown)="onKeydown($event)"
+                onfocus="WdatePicker({ position: { top: 5 }, hmsMenuCfg: { H: [1, 8], m: [1, 10], s: [15, 4] }, isShowClear: false, isShowOK: true, skin: 'twoer', dateFmt:'yyyy-MM-dd HH:mm', enableKeyboard: false, autoUpdateOnChanged: true })" />
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="control">
+        <button nz-button nzType="dashed" (click)="onResetClick($event)" *ngIf="showReset"
+          style="float: left; margin-left: 0px;">
+          重置
+        </button>
+        <button nz-button nzType="primary" (click)="onLatestClick($event)" *ngIf="showLatest"
+          style="float: left; margin-left: 0px; margin-right: 0px;">
+          最新
+        </button>
+
+        <button nz-button nzType="dashed" (click)="onClearClick($event)">
+          清空
+        </button>
+        <button nz-button nzType="primary" (click)="onConfirmClick($event)">
+          确定
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-template>
