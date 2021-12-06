@@ -26,6 +26,11 @@ export class HomeComponent implements OnInit {
       id: 'frame003',
       text: '面板',
       src: '/panel'
+    },
+    {
+      id: 'frame004',
+      text: '英雄列表',
+      src: '/heros'
     }
   ];
 
