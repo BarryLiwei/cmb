@@ -1,2 +1,24 @@
-<p>home works!</p>
-<a  routerLink="/heros">heros</a>
+<nz-layout class="layout">
+  <nz-header>
+    <div class="logo">
+      <i nz-icon nzType="crown" nzTheme="twotone" [nzTwotoneColor]="'#f00'"></i>
+      <i nz-icon nzType="appstore" [nzTheme]="'twotone'" [nzTwotoneColor]="'#f00'"></i>
+      <span class="menu-title">功能菜单</span>
+    </div>
+    <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" class="header-menu">
+      <li nz-menu-item nzSelected>首页</li>
+      <li nz-menu-item>资产</li>
+      <li nz-menu-item>业务</li>
+      <li nz-menu-item>追踪</li>
+      <li nz-menu-item>监控</li>
+      <li nz-menu-item>告警</li>
+    </ul>
+    <div class="login-info">
+      <div>admin</div>
+    </div>
+  </nz-header>
+  <nz-content>
+
+  </nz-content>
+</nz-layout>
+
