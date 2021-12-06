@@ -6,7 +6,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.less']
 })
 export class HomeComponent implements OnInit {
+  tabs = [
+    {
+      id: 'frame000',
+      text: '资产',
+      src: '/fund'
+    },
+    {
+      id: 'frame001',
+      text: '业务',
+      src: '/business'
+    },
+    {
+      id: 'frame002',
+      text: '追踪',
+      src: '/track'
+    },
+    {
+      id: 'frame003',
+      text: '面板',
+      src: '/panel'
+    }
+  ];
 
+  actvTab = this.tabs[0].id;
   constructor() { }
 
   ngOnInit(): void {

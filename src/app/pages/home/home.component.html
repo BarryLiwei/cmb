@@ -6,19 +6,24 @@
       <span class="menu-title">功能菜单</span>
     </div>
     <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" class="header-menu">
-      <li nz-menu-item nzSelected>首页</li>
-      <li nz-menu-item>资产</li>
-      <li nz-menu-item>业务</li>
-      <li nz-menu-item>追踪</li>
-      <li nz-menu-item>监控</li>
-      <li nz-menu-item>告警</li>
+      <li nz-menu-item  [nzSelected]="actvTab === tab.id" *ngFor="let tab of tabs"> {{tab.text}}</li>
     </ul>
     <div class="login-info">
       <div>admin</div>
     </div>
   </nz-header>
   <nz-content>
-
+    <iframe
+      *ngFor="let tab of tabs"
+      scrolling="auto"
+      translate="yes"
+      frameborder="0"
+      [id]="tab.id"
+      [src]="tab.src|safeUrl"
+      [hidden]="actvTab!==tab.id"
+      class="frame-style"
+    >
+    </iframe>
   </nz-content>
 </nz-layout>
 

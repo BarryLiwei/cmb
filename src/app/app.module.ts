@@ -14,6 +14,7 @@ import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { NgZorroAntdModule, NZ_ICONS } from 'ng-zorro-antd';
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
+import { SafeUrlPipe } from './pipes/safe-url.pipe';
 
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
@@ -24,7 +25,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
   declarations: [
     AppComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SafeUrlPipe
   ],
   imports: [
     BrowserModule,
